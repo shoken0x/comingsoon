@@ -1,0 +1,85 @@
+#!/bin/bash
+#
+# chkconfig: - 85 15
+# description: sinatra
+#
+
+. /etc/rc.d/init.d/functions
+
+PROG_NAME="sinatra"
+SINA_ROOT="/home/rails/comingsoon"
+SINA_USER="rails"
+LOG_FILE="/var/log/sinatra.log"
+PORT="4567"
+INIT_COMMAND="/usr/local/bin/ruby -I ${SINA_ROOT}/lib ${SINA_ROOT}/server.rb -p ${PORT}"
+PID=`ps -ef |grep "${INIT_COMMAND}" |grep -v "grep" |awk '{print $2}'`
+
+start() {
+        if [ "x${PID}" != "x" ]; then
+                echo "[ERROR] ${PROG_NAME} is already running (PID=${PID})"
+                exit 1
+        fi  
+        echo -n "Starting ${PROG_NAME} .. "
+        #nohup ${INIT_COMMAND} > ${LOG_FILE} 2>&1 &
+        cd $SINA_ROOT
+        daemon --user "$SINA_USER" ${INIT_COMMAND} > ${LOG_FILE} 2>&1 &
+        if test $? -eq 0; then
+                echo "[  OK  ]"
+                exit 0
+        else 
+                echo "[FAILED]"
+                exit 1
+        fi  
+}
+
+stop() {
+        if [ "x${PID}" == "x" ]; then
+                echo "[ERROR] ${PROG_NAME} is already stopped"
+                exit 1
+        fi
+
+        echo -n "Stopping ${PROG_NAME} "
+        kill ${PID}
+        while [ "x${PID}" != "x" ]
+        do
+                PID=`ps -ef |grep "${INIT_COMMAND}" |grep -v "grep" |awk '{print $2}'`
+                sleep 1
+                echo -n "."
+        done
+        if test $? -eq 0; then
+                echo "[  OK  ]"
+        else
+                echo "[FAILED]"
+                exit 1
+        fi
+}
+
+status() {
+        if [ "x${PID}" != "x" ] ; then
+                echo "${PROG_NAME} is running (PID=${PID})"
+                exit 0
+        else
+                echo "${PROG_NAME} is stoped"   
+                exit 1
+        fi
+}
+
+case "$1" in
+  start)
+  start
+  ;;
+  stop)
+  stop
+  ;;
+  status)
+  status
+  ;;
+  restart)
+  stop
+  start
+  ;;
+  *)
+  echo $"Usage: $0 {start|stop|restart|status}"
+  exit 1
+esac
+
