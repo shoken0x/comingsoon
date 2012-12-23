@@ -31,4 +31,8 @@ class Email
     gmail.deliver(email)
     gmail.disconnect
   end
+
+  def self.valid?(email)
+    !!email.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+$/)
+  end
 end

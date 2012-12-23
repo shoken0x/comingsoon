@@ -21,6 +21,7 @@
         </div>
         <div id="form">
           <form action="result" method="post" name="invitation">
+            <p><%=@message%><p>
             <input type="text" name="email" size="20" placeholder="E-mail Address" />
             <input type="button" value="Request an Invitation" class="btn btn-success btn-original" onclick="document.invitation.submit()"/>
           </form>
