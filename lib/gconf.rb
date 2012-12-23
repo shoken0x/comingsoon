@@ -1,6 +1,14 @@
+require 'pit'
+
 class GConf
-  USERNAME='mail@kitchhike.com'  #Gmailのアドレス
-  PASSWORD='xxxx'                #Gmailのパスワード
+  config = Pit.get('gmail')  
+  USERNAME=config['user']  #Gmailのアドレス
+  PASSWORD=config['pass']  #Gmailのパスワード
   SUBJECT='Welcome KitchHike!!'
-  BODY='KitchHike is coming soon...  Leave your email for early access.'
+  BODY=<<EOS 
+      KitchHike is coming soon...  Leave your email for early access.\n
+      \n
+      http://kitchhike.com
+EOS
+
 end

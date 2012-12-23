@@ -11,8 +11,11 @@ class Email
 
     db = Mongo::Connection.new.db(db_name)
     coll = db.collection(coll_name)
-
-    coll.insert(data)
+    
+    result = coll.find(data).first
+    if (!result)
+      coll.insert(data)
+    end
 
     db.connection.close
   end
