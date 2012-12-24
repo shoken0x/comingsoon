@@ -26,7 +26,7 @@ div#container {
 	text-align:left;
 }
 #contents-wrapper1 {
-	width: 300px;
+	width: 100%;
 	height: 520px;
 	background-color: #FFFFFF;
 	background-image: url(/images/line_001.jpg);
@@ -34,7 +34,7 @@ div#container {
 	background-position: -6px top;
 }
 #contents-wrapper2 {
-	width: 300px;
+	width: 100%;
 	height: 520px;
 	background-image: url(/images/line_001.jpg);
 	background-repeat: repeat-x;
