@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>KitchHike Invitation</title>
+		<link href='css/main.css' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		<meta name="description" content="KitchHike Find the world kitchen" />
+		<meta name="keyword" content="Kitchhike,SNS,social,world,kitchen" />
+		<meta property="og:title" content="KitchHike" />
+		<meta property="og:url" content="http://kitchhike.com"/>
+		<meta property="og:image" content="http://kitchhike.com/images/logo.jpg"/>
+		<meta property="og:site_name" content="KitchHike"/>
+		<meta property="og:description" content="Find the world kitchen!"/>
+	</head>
+	<body>
+<div id="fb-root"></div>
+    <div id="container" align="center">
+   	<div id="contents-wrapper1">
+   	<div id="contents-wrapper2">
+      <div id="contents" class="text-center">
+        <img src="images/main_image.png" />
+        <div id="contents-text" class="text-left">
+          <%=@message%>
+        </div>
+        <% if (@form) %>
+        <div id="form">
+          <form action="/" method="post" name="invitation">
+            <input type="text" name="email" size="20" placeholder="e-mail@address.com" />
+            <input type="button" value="GO" class="btn btn-success btn-original" onclick="document.invitation.submit()"/>
+          </form>
+        </div>
+        <% end %>
+        <div id="social-btn-area">
+	        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://kitchhike.com" data-text="KitchHike, Find the world kitchen!">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<!--<iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=http%3A%2F%2Fkitchhike.com&amp;send=false&amp;layout=standard&amp;width=270&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=35&amp;" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:35px;" allowTransparency="true"></iframe>-->
+			<iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=http%3A%2F%2Fkitchhike.com&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:61px;" allowTransparency="true"></iframe>
+        </div>
+      </div>
+   	</div>
+   	</div>
+    </div>
+  </body>
+</html>
+

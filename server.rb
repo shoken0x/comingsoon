@@ -7,7 +7,11 @@ require "message.rb"
 get '/' do
   @message = Message::WELCOME
   @form = true
-  erb :index
+  if request.user_agent.include?("Mobile")
+    erb :mobile
+  else
+    erb :index
+  end
 end
 
 post '/' do
@@ -22,10 +26,18 @@ post '/' do
     Email.send params[:email]
     @message = Message::THANKYOU
     @form = false
-    erb :index
+    if request.user_agent.include?("Mobile")
+      erb :mobile
+    else
+      erb :index
+    end
   else
     @message = Message::NOTVALID
     @form = true
-    erb :index
+    if request.user_agent.include?("Mobile")
+      erb :mobile
+    else
+      erb :index
+    end
   end
 end
