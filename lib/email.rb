@@ -12,7 +12,7 @@ class Email
     db = Mongo::Connection.new.db(db_name)
     coll = db.collection(coll_name)
     
-    result = coll.find(data).first
+    result = coll.find({:email => data[:email]}).first
     if (!result)
       coll.insert(data)
     end
