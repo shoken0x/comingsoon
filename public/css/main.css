@@ -23,7 +23,7 @@ div#container {
 }
 #contents-wrapper1 {
 	width: 300px;
-	height: 490px;
+	height: 520px;
 	background-color: #FFFFFF;
 	background-image: url(/images/line_001.jpg);
 	background-repeat: repeat-x;
@@ -31,16 +31,16 @@ div#container {
 }
 #contents-wrapper2 {
 	width: 300px;
-	height: 490px;
+	height: 520px;
 	background-image: url(/images/line_001.jpg);
 	background-repeat: repeat-x;
 	background-position: -6px bottom;
 }
 #contents {
-	margin-top: 50px;
+	margin-top: 30px;
 	padding: 15px 0;
 	width: 300px;
-	height: 460px;
+	height: 490px;
 }
 #contents-text {
     margin: 0;
