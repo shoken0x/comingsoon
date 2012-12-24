@@ -23,7 +23,7 @@ div#container {
 }
 #contents-wrapper1 {
 	width: 300px;
-	height: 430px;
+	height: 490px;
 	background-color: #FFFFFF;
 	background-image: url(/images/line_001.jpg);
 	background-repeat: repeat-x;
@@ -31,16 +31,16 @@ div#container {
 }
 #contents-wrapper2 {
 	width: 300px;
-	height: 430px;
+	height: 490px;
 	background-image: url(/images/line_001.jpg);
 	background-repeat: repeat-x;
 	background-position: -6px bottom;
 }
 #contents {
-	margin-top: 100px;
+	margin-top: 50px;
 	padding: 15px 0;
 	width: 300px;
-	height: 400px;
+	height: 460px;
 }
 #contents-text {
     margin: 0;
@@ -112,4 +112,12 @@ div#container {
 	background-image: none;
     border: 1px solid #026985;
 	box-sizing: border-box;
+}
+#social-btn-area {
+	margin-top: 10px;
+    padding: 0 15px;
+	text-align:left;
+}
+iframe.twitter-share-button {
+    width: 90px!important;
 }
