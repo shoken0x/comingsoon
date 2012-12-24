@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>KitchHike Invitation</title>
-    <link href='css/main.css' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div align="center">
-      <div id="invitaion-form" class="show-contents text-center">
-        <h1>
-          <span class="text-red">Welcome to</span>
-          <span class="text-blue">KitchHike!!</span>
-        </h1>
-        <img src="images/logo_002.jpg" />
-        <div id="how" class="text-left">
-          <h3 class="text-center">Find the world's kitchen!</h3>
-          <p>KitchHike is currently under construction...</p>
-          <p>Please enter your email address.</p>
+	<head>
+		<title>KitchHike Invitation</title>
+		<link href='css/main.css' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+	<img class="bg" src="images/background.jpg" alt="" />
+    <div id="container" align="center">
+   	<div id="contents-wrapper1">
+   	<div id="contents-wrapper2">
+      <div id="contents" class="text-center">
+        <img src="images/main_image.png" />
+        <div id="contents-text" class="text-left">
+          KitchHike is currently under construction...<br />
+          Please enter your email address.
         </div>
         <div id="form">
           <form action="result" method="post" name="invitation">
             <input type="text" name="email" size="20" placeholder="E-mail Address" />
-            <input type="button" value="Request an Invitation" class="btn btn-success btn-original" onclick="document.invitation.submit()"/>
+            <input type="button" value="GO" class="btn btn-success btn-original" onclick="document.invitation.submit()"/>
           </form>
         </div>
       </div>
+   	</div>
+   	</div>
     </div>
   </body>
 </html>
