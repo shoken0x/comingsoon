@@ -13,16 +13,16 @@
       <div id="contents" class="text-center">
         <img src="images/main_image.png" />
         <div id="contents-text" class="text-left">
-          KitchHike is currently under construction...<br />
-          Please enter your email address.
+          <%=@message%>
         </div>
+        <% if (@form) %>
         <div id="form">
-          <form action="result" method="post" name="invitation">
-            <p><%=@message%><p>
+          <form action="/" method="post" name="invitation">
             <input type="text" name="email" size="20" placeholder="E-mail Address" />
             <input type="button" value="GO" class="btn btn-success btn-original" onclick="document.invitation.submit()"/>
           </form>
         </div>
+        <% end %>
       </div>
    	</div>
    	</div>

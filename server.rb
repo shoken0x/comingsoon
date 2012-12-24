@@ -2,13 +2,15 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
 require "sinatra"
 
 require "email.rb"
+require "message.rb"
 
 get '/' do
-  @message = ''
+  @message = Message::WELCOME
+  @form = true
   erb :index
 end
 
-post '/result' do
+post '/' do
   if (Email.valid? (params[:email]) )
     Email.save ({:email                => params[:email],
                  :HTTP_ACCEPT_LANGUAGE => request.env["HTTP_ACCEPT_LANGUAGE"],
@@ -18,9 +20,12 @@ post '/result' do
                  :create_at            => Time.now
     })
     Email.send params[:email]
-    erb :result
+    @message = Message::THANKYOU
+    @form = false
+    erb :index
   else
-    @message = 'Not valid email'
+    @message = Message::NOTVALID
+    @form = true
     erb :index
   end
 end
