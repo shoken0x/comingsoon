@@ -11,8 +11,11 @@ class Email
 
     db = Mongo::Connection.new.db(db_name)
     coll = db.collection(coll_name)
-
-    coll.insert(data)
+    
+    result = coll.find(data).first
+    if (!result)
+      coll.insert(data)
+    end
 
     db.connection.close
   end
@@ -27,5 +30,9 @@ class Email
     end
     gmail.deliver(email)
     gmail.disconnect
+  end
+
+  def self.valid?(email)
+    !!email.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+$/)
   end
 end
