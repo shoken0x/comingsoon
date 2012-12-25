@@ -25,6 +25,7 @@ class Email
 
     email = gmail.generate_message do
       to _to 
+      from GConf::FROM
       subject GConf::SUBJECT
       body GConf::BODY
     end

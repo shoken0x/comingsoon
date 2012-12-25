@@ -4,6 +4,7 @@ class GConf
   config = Pit.get('gmail')  
   USERNAME=config['user']  #Gmailのアドレス
   PASSWORD=config['pass']  #Gmailのパスワード
+  FROM="KitchHike <#{USERNAME}>"
   SUBJECT='Welcome to KitchHike!'
   BODY=<<EOS 
 Thank you for registering with us!\n
