@@ -44,3 +44,7 @@ post '/' do
     erb :index
   end
 end
+
+get '/cnt' do
+  Email.count.to_s
+end

@@ -32,6 +32,14 @@ class Email
     gmail.disconnect
   end
 
+  def self.count
+    db_name="comingsoon"
+    coll_name = "users"
+
+    db = Mongo::Connection.new.db(db_name)
+    db.collection(coll_name).count()
+  end
+
   def self.valid?(email)
     !!email.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+$/)
   end
