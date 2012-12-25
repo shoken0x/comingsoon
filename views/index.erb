@@ -2,7 +2,11 @@
 <html>
 	<head>
 		<title>KitchHike Invitation</title>
-		<link href='css/main.css' rel='stylesheet' type='text/css'>
+		<% if(@mobile) %>
+		  <link href='css/mobile.css' rel='stylesheet' type='text/css'>
+		<% else %>
+		  <link href='css/main.css' rel='stylesheet' type='text/css'>
+		<% end %>
 		<link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		<script type="text/javascript">
@@ -19,16 +23,21 @@
 		<meta property="og:image" content="http://kitchhike.com/images/logo.jpg"/>
 		<meta property="og:site_name" content="KitchHike"/>
 		<meta property="og:description" content="Find the world kitchen!"/>
+		<% if(@mobile) %>
+		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<% end %>
 	</head>
 	<body>
 <div id="fb-root"></div>
-	<img class="bg" src="images/background.jpg" alt="" />
+	<% if(!@mobile) %>
+	  <img class="bg" src="images/background.jpg" alt="" />
+	<% end %>
     <div id="container" align="center">
    	<div id="contents-wrapper1">
    	<div id="contents-wrapper2">
       <div id="contents" class="text-center">
         <img src="images/main_image.png" />
-        <div id="contents-text" class="text-left">
+        <div id="contents-text" class="text-center">
           <%=@message%>
         </div>
         <% if (@form) %>

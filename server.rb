@@ -8,10 +8,11 @@ get '/' do
   @message = Message::WELCOME
   @form = true
   if request.user_agent.include?("Mobile")
-    erb :mobile
+    @mobile = true
   else
-    erb :index
+    @mobile = false
   end
+  erb :index
 end
 
 post '/' do
@@ -27,17 +28,19 @@ post '/' do
     @message = Message::THANKYOU
     @form = false
     if request.user_agent.include?("Mobile")
-      erb :mobile
+      @mobile = true
     else
-      erb :index
+      @mobile = false
     end
+    erb :index
   else
     @message = Message::NOTVALID
     @form = true
     if request.user_agent.include?("Mobile")
-      erb :mobile
+      @mobile = true
     else
-      erb :index
+      @mobile = false
     end
+    erb :index
   end
 end
