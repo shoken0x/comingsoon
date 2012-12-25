@@ -8,6 +8,9 @@
 		  <link href='css/main.css' rel='stylesheet' type='text/css'>
 		<% end %>
 		<link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/jquery.maximage.css?v=1.2" type="text/css" media="screen" charset="utf-8" />
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js'></script>
+		<script src="js/jquery.maximage.js" type="text/javascript" charset="utf-8"></script>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		<script type="text/javascript">
 		  (function() {
@@ -29,9 +32,6 @@
 	</head>
 	<body>
 <div id="fb-root"></div>
-	<% if(!@mobile) %>
-	  <img class="bg" src="images/background.jpg" alt="" />
-	<% end %>
     <div id="container" align="center">
    	<div id="contents-wrapper1">
    	<div id="contents-wrapper2">
@@ -51,13 +51,33 @@
         <div id="social-btn-area">
 	        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://kitchhike.com" data-text="KitchHike, Find the world kitchen!">Tweet</a>
 			<div class="g-plusone" data-size="medium"></div>
-			<!--<iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=http%3A%2F%2Fkitchhike.com&amp;send=false&amp;layout=standard&amp;width=270&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=35&amp;" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:35px;" allowTransparency="true"></iframe>-->
-			<iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=http%3A%2F%2Fkitchhike.com&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:61px;" allowTransparency="true"></iframe>
+			<iframe src="//www.facebook.com/plugins/like.php?locale=en_US&href=http%3A%2F%2Fkitchhike.com&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:63px;" allowTransparency="true"></iframe>
         </div>
       </div>
    	</div>
    	</div>
     </div>
+	<% if(!@mobile) %>
+		<div id="maximage">
+			<img src="/images/background.jpg" alt="" width="1400" height="1050" />
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+				$('#maximage').maximage({
+					cycleOptions: {
+						fx: 'fade',
+						speed: 1000,
+						timeout: 0,
+						prev: '#arrow_left',
+						next: '#arrow_right',
+						pause: 1,
+						after: function(last,current){
+						}
+					}
+				});
+			});
+		</script>
+	<% end %>
   </body>
 </html>
 
