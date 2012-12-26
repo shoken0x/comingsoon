@@ -4,14 +4,13 @@ require "sinatra"
 require "email.rb"
 require "message.rb"
 
+before do
+  @isForm = true
+  @isMobile = request.user_agent.include?("Mobile")
+end
+
 get '/' do
   @message = Message::WELCOME
-  @form = true
-  if request.user_agent.include?("Mobile")
-    @mobile = true
-  else
-    @mobile = false
-  end
   erb :index
 end
 
@@ -26,21 +25,10 @@ post '/' do
     })
     Email.send params[:email]
     @message = Message::THANKYOU
-    @form = false
-    if request.user_agent.include?("Mobile")
-      @mobile = true
-    else
-      @mobile = false
-    end
+    @isForm = false
     erb :index
   else
     @message = Message::NOTVALID
-    @form = true
-    if request.user_agent.include?("Mobile")
-      @mobile = true
-    else
-      @mobile = false
-    end
     erb :index
   end
 end

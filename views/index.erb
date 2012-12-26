@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>KitchHike Invitation</title>
-		<% if(@mobile) %>
+		<% if(@isMobile) %>
 		  <link href='css/mobile.css' rel='stylesheet' type='text/css'>
 		<% else %>
 		  <link href='css/main.css' rel='stylesheet' type='text/css'>
@@ -30,7 +30,7 @@
 		<meta property="fb:admins" content="100002166934717" />
 		<meta property="fb:admins" content="100001802884062" />
 		<meta property="fb:app_id" content="411048552262525">  
-		<% if(@mobile) %>
+		<% if(@isMobile) %>
 		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<% end %>
 	</head>
@@ -44,7 +44,7 @@
         <div id="contents-text" class="text-center">
           <%=@message%>
         </div>
-        <% if (@form) %>
+        <% if (@isForm) %>
         <div id="form">
           <form action="/" method="post" name="invitation">
             <input type="text" name="email" size="20" placeholder="e-mail@address.com" />
@@ -61,7 +61,7 @@
    	</div>
    	</div>
     </div>
-	<% if(!@mobile) %>
+	<% if(!@isMobile) %>
 		<div id="maximage">
 			<img src="/images/background.jpg" alt="" width="1400" height="1050" />
 		</div>
