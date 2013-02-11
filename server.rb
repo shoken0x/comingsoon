@@ -36,3 +36,11 @@ end
 get '/cnt' do
   Email.count.to_s
 end
+
+get '/privacy_policy' do
+  'KitchHike privacy_policy' 
+end
+
+get '/terms_of_use' do
+  'KitchHike terms_of_use' 
+end
